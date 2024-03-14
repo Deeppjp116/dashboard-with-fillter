@@ -1,0 +1,9 @@
+/* Chart.css */
+.chart-container {
+  width: 100%; /* Ensure the container takes full width */
+}
+
+.chart {
+  width: 100%; /* Set the chart itself to full width */
+  /* Additional styles for the chart */
+}
