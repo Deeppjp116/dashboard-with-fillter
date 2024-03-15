@@ -1,9 +1,9 @@
-<img src="/app/assets/images/your-logo.svg" alt="Your Project Logo" width="200"/> </br></br>
+
 [![CircleCI Status](https://img.shields.io/circleci/build/github/your-username/your-repo/master?label=circleci&style=for-the-badge&logo=circleci)](https://circleci.com/gh/your-username/your-repo)
 
 ---
 
-[Your Project Name](https://yourprojectwebsite.com) is a project that consists of both front-end and back-end components. It's designed to [briefly explain what your project does or its purpose].
+Dashboard(https://yourprojectwebsite.com) is a project that consists of both front-end and back-end components. It's designed to [briefly explain what your project does or its purpose].
 
 ## Setup
 
@@ -41,7 +41,7 @@ Here are the main dependencies used in this project:
 
 - React: A JavaScript library for building user interfaces.
 - Axios: A promise-based HTTP client for the browser and Node.js.
-- Chart.js: A simple yet flexible JavaScript charting library.
+- syncfusion: A simple yet flexible JavaScript charting library.
 - Others: Various Syncfusion components for UI elements.
 
 ### Backend (dashboard)
