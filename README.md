@@ -1,9 +1,4 @@
-
-[![CircleCI Status](https://img.shields.io/circleci/build/github/your-username/your-repo/master?label=circleci&style=for-the-badge&logo=circleci)](https://circleci.com/gh/your-username/your-repo)
-
----
-
-Dashboard(https://yourprojectwebsite.com) is a project that consists of both front-end and back-end components. It's designed to [briefly explain what your project does or its purpose].
+Dashboardis a project that consists of both front-end and back-end components. It's designed to [briefly explain what your project does or its purpose].
 
 ## Setup
 
