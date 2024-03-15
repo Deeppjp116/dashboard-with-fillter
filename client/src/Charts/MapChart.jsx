@@ -1,5 +1,7 @@
 import { world_map } from '../data/worldMap';
-import { data } from '../data/output';
+import fetchData from '../data/output';
+
+const data = fetchData();
 
 import {
   MapsComponent,
@@ -12,8 +14,29 @@ import {
   Bubble,
   Marker,
 } from '@syncfusion/ej2-react-maps';
+import { useEffect, useState } from 'react';
 
 const MapChart = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchDataAndSetData = async () => {
+      try {
+        const fetchedData = await fetchData();
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchDataAndSetData();
+  }, []);
+
+  if (!data) {
+    // Data is not yet available, return loading indicator or null
+    return null;
+  }
+
   return (
     <MapsComponent titleSettings={{ text: 'World map with intensity' }}>
       <Inject services={[Marker, Bubble, MapsTooltip]} />

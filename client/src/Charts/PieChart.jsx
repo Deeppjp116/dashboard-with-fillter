@@ -3,39 +3,31 @@ import {
   AccumulationSeriesCollectionDirective,
   AccumulationSeriesDirective,
 } from '@syncfusion/ej2-react-charts';
-import { data } from '../data/output';
 
-function PieChart() {
-  // Function to extract month from date string
-  function getMonthFromDate(dateString) {
-    const date = new Date(dateString);
-    const month = date.getMonth() + 1; // Adding 1 since getMonth() returns 0-indexed months
-    return month;
-  }
+import { filterDataByMonth } from '../data/filterdatawithMonth';
+import { useEffect, useState } from 'react';
 
-  // Function to filter data based on month
-  function filterDataByMonth(month) {
-    return data.filter((entry) => getMonthFromDate(entry.added) === month);
-  }
+function PieChart({ month }) {
+  const [filteredData, setFilteredData] = useState([]);
 
-  // Function to generate array of filtered data for all months
-  function generateMonthlyDataArray() {
-    const monthlyDataArray = [];
-    for (let month = 1; month <= 12; month++) {
-      const filteredData = filterDataByMonth(month);
-      monthlyDataArray.push(filteredData);
-    }
-    return monthlyDataArray;
-  }
+  useEffect(() => {
+    const fetchDataAndFilter = async () => {
+      try {
+        const data = await filterDataByMonth(month);
+        setFilteredData(data);
+      } catch (error) {
+        console.error('Error fetching or filtering data:', error);
+      }
+    };
 
-  // Example: Generate array of filtered data for all months
-  const allMonthsData = generateMonthlyDataArray();
-  console.log('Filtered data for all months:', allMonthsData);
+    fetchDataAndFilter();
+  }, [month]); // Call fetchDataAndFilter whenever the month prop changes
+
   return (
     <AccumulationChartComponent id='charts'>
       <AccumulationSeriesCollectionDirective>
         <AccumulationSeriesDirective
-          dataSource={data}
+          dataSource={filteredData}
           xName='topic'
           yName='intensity'
           radius='100%'

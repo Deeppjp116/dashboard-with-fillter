@@ -1,9 +1,17 @@
-/* Chart.css */
-.chart-container {
-  width: 100%; /* Ensure the container takes full width */
+.parent {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.chart {
-  width: 100%; /* Set the chart itself to full width */
-  /* Additional styles for the chart */
+.Piechart,
+.Mapchart,
+.BarChart {
+  flex: 1 1 300px; /* Ensure each chart has equal width and set a minimum width */
+  margin: 10px; /* Add some margin between charts */
+}
+
+h1 {
+  color: blue;
 }
